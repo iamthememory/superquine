@@ -1,17 +1,18 @@
 /* Superquine: an incredibly recursive for-loop: Written by Alex Corkwell, 2015 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <libgen.h>
 int main(int argc, char **argv) {
-	char *s1 = "/* Superquine: an incredibly recursive for-loop: Written by Alex Corkwell, 2015 */%c#include <stdio.h>%c#include <stdlib.h>%cint main(int argc, char **argv) {%c";
+	char *s1 = "/* Superquine: an incredibly recursive for-loop: Written by Alex Corkwell, 2015 */%c#include <stdio.h>%c#include <stdlib.h>%c#include <libgen.h>%cint main(int argc, char **argv) {%c";
 	char *s2 = "%cchar *s%c = %c%s%c;%c%cchar *s%c = %c%s%c;%c";
 	char *s3 = "%cchar t = '%ct', n = '%cn', q = '%c', b = '%c%c', p = '%c';%c";
 	char *sf = "fprintf(next, ";
-	char *sb = "%cFILE *next;%c%cchar comp[100], cname[100], execname[100];%c%cint num = atoi(argv[0] + 2);%c%cprintf(%c%cd%cn%c, num);%c%cnum++;%c";
+	char *sb = "%cFILE *next;%c%cchar comp[100], cname[100], execname[100];%c%cint num = atoi(basename(argv[0]));%c%cprintf(%c%cd%cn%c, num);%c%cnum++;%c";
 	char *si = "%cif (num < 100) {%c%c%csprintf(comp, %cgcc -o %cd %cd.c%c, num, num);%c%c%csprintf(cname, %c%cd.c%c, num);%c";
 	char *sn = "%c%csprintf(execname, %c./%cd%c, num);%c%c%cnext = fopen(cname, %cw%c);%c";
 	char *se = "%c%cfclose(next);%c%c%csystem(comp);%c";
 	char *sr = "%c%csystem(execname);%c%c}%c%creturn 0;%c}%c";
-	char *s4 = "%c%c%ss1, n, n, n, n);%c";
+	char *s4 = "%c%c%ss1, n, n, n, n, n);%c";
 	char *s5 = "%c%c%ss2, t, '1', q, s1, q, n, t, '2', q, s2, q, n);%c%c%c%ss2, t, '3', q, s3, q, n, t, 'f', q, sf, q, n);%c";
 	char *s6 = "%c%c%ss2, t, 'b', q, sb, q, n, t, 'i', q, si, q, n);%c%c%c%ss2, t, 'n', q, sn, q, n, t, 'e', q, se, q, n);%c";
 	char *s7 = "%c%c%ss2, t, 'r', q, sr, q, n, t, '4', q, s4, q, n);%c%c%c%ss2, t, '5', q, s5, q, n, t, '6', q, s6, q, n);%c";
@@ -41,7 +42,7 @@ int main(int argc, char **argv) {
 	char t = '\t', n = '\n', q = '"', b = '\\', p = '%';
 	FILE *next;
 	char comp[100], cname[100], execname[100];
-	int num = atoi(argv[0] + 2);
+	int num = atoi(basename(argv[0]));
 	printf("%d\n", num);
 	num++;
 	if (num < 100) {
@@ -49,7 +50,7 @@ int main(int argc, char **argv) {
 		sprintf(cname, "%d.c", num);
 		sprintf(execname, "./%d", num);
 		next = fopen(cname, "w");
-		fprintf(next, s1, n, n, n, n);
+		fprintf(next, s1, n, n, n, n, n);
 		fprintf(next, s2, t, '1', q, s1, q, n, t, '2', q, s2, q, n);
 		fprintf(next, s2, t, '3', q, s3, q, n, t, 'f', q, sf, q, n);
 		fprintf(next, s2, t, 'b', q, sb, q, n, t, 'i', q, si, q, n);
