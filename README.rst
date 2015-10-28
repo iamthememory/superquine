@@ -21,10 +21,10 @@ Superquine writes a copy of its own code, compiles it, and recursively does it
 again, but what does it really use all this complexity for?
 
 All of this builds up to solve one of the oldest and best known problems in math
-and computing: counting to 99.
+and computing: counting to 9999.
 
 So, there you have it.
-One of the more convoluted ways to write a program to count to 99 in C.
+One of the more convoluted ways to write a program to count to 9999 in C.
 
 Requirements
 ------------
@@ -57,8 +57,8 @@ Now, you're ready to run Superquine::
 
     ./0
 
-You'll see it print the numbers from 0 to 99, although it may take some time due
-to all the recursion and compiling.
+You'll see it print the numbers from 0 to 9999, although it may take some time
+due to all the recursion and compiling.
 
 If you want to play around, try changing some of the code, particularly the
 number in the ``if`` statement (you'll have to change it in two places: once in
