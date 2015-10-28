@@ -1,8 +1,8 @@
-/* An incredibly recursive for-loop: Copyright 2015 Alex Corkwell */
+/* Superquine: an incredibly recursive for-loop: Written by Alex Corkwell, 2015 */
 #include <stdio.h>
 #include <stdlib.h>
 int main(int argc, char **argv) {
-	char *s1 = "/* An incredibly recursive for-loop: Copyright 2015 Alex Corkwell */%c#include <stdio.h>%c#include <stdlib.h>%cint main(int argc, char **argv) {%c";
+	char *s1 = "/* Superquine: an incredibly recursive for-loop: Written by Alex Corkwell, 2015 */%c#include <stdio.h>%c#include <stdlib.h>%cint main(int argc, char **argv) {%c";
 	char *s2 = "%cchar *s%c = %c%s%c;%c%cchar *s%c = %c%s%c;%c";
 	char *s3 = "%cchar t = '%ct', n = '%cn', q = '%c', b = '%c%c', p = '%c';%c";
 	char *sf = "fprintf(next, ";
