@@ -64,6 +64,10 @@ If you want to play around, try changing some of the code, particularly the
 number in the ``if`` statement (you'll have to change it in two places: once in
 a string and once in the actual code).
 
+To clean up all of the generated copies of the quine, just run::
+
+    make clean
+
 Notes
 -----
 
