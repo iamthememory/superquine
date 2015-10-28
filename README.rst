@@ -44,7 +44,7 @@ Running
 To run Superquine, first compile it with either::
 
     gcc -o 0 0.c
-    
+
 or by running::
 
     make
