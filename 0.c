@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
 	char *s3 = "%cchar t = '%ct', n = '%cn', q = '%c', b = '%c%c', p = '%c';%c";
 	char *sf = "fprintf(next, ";
 	char *sb = "%cFILE *next;%c%cchar comp[100], cname[100], execname[100];%c%cint num = atoi(basename(argv[0]));%c%cprintf(%c%cd%cn%c, num);%c%cnum++;%c";
-	char *si = "%cif (num < 100) {%c%c%csprintf(comp, %cgcc -o %cd %cd.c%c, num, num);%c%c%csprintf(cname, %c%cd.c%c, num);%c";
+	char *si = "%cif (num < 10000) {%c%c%csprintf(comp, %cgcc -o %cd %cd.c%c, num, num);%c%c%csprintf(cname, %c%cd.c%c, num);%c";
 	char *sn = "%c%csprintf(execname, %c./%cd%c, num);%c%c%cnext = fopen(cname, %cw%c);%c";
 	char *se = "%c%cfclose(next);%c%c%csystem(comp);%c";
 	char *sr = "%c%cexecl(execname, execname, (char *) NULL);%c%c}%c%creturn 0;%c}%c";
@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
 	int num = atoi(basename(argv[0]));
 	printf("%d\n", num);
 	num++;
-	if (num < 100) {
+	if (num < 10000) {
 		sprintf(comp, "gcc -o %d %d.c", num, num);
 		sprintf(cname, "%d.c", num);
 		sprintf(execname, "./%d", num);
